@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Sign In | Scintilla Baskets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: var(--c-black);
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 400px;
+      background: var(--c-charcoal);
+      padding: 3rem;
+      border-radius: 4px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .auth-container h2 {
+      color: var(--c-gold);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .auth-container .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .auth-container input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem 0;
+      color: var(--c-white);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      transition: var(--trans-smooth);
+    }
+
+    .auth-container input:focus {
+      outline: none;
+      border-bottom-color: var(--c-gold);
+    }
+
+    .auth-container button {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--c-gold);
+      color: var(--c-black);
+      border: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: var(--trans-smooth);
+    }
+
+    .auth-container button:hover {
+      background: var(--c-white);
+    }
+
+    #error-msg {
+      color: #ff4444;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      min-height: 1.2rem;
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .back-link:hover {
+      color: var(--c-gold);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="auth-container">
+    <h2>Admin Access</h2>
+    <div class="form-group">
+      <input type="email" id="email" placeholder="Admin Email" value=" " />
+    </div>
+    <div class="form-group">
+      <input type="password" id="password" placeholder="Password" />
+    </div>
+    <button onclick="loginAdmin()" id="admin-login-btn">Sign In</button>
+    <p id="error-msg"></p>
+  </div>
+
+  <a href="index.html" class="back-link">← Return to Site</a>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

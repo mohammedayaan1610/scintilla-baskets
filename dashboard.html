@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Scintillia Baskets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Keep minimal specific overrides if needed, but most go to style.css */
+  </style>
+</head>
+<body class="dashboard-body">
+
+  <!-- Loading Screen -->
+  <div id="loading">Verifying Access...</div>
+
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="brand">
+      <span class="brand-icon" style="color:var(--c-gold)">✦</span>
+      <h1>Scintillia Admin</h1>
+    </div>
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <a href="index.html" style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-right: 1rem;">View Live Site</a>
+      <button onclick="logoutAdmin()" class="btn-logout">Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    
+    <!-- Admin Controls Column -->
+    <div>
+      <!-- Add Product Panel -->
+      <div class="admin-panel" id="adminPanel" style="margin-bottom: 2rem;">
+        <h2>Add New Product</h2>
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Product Name" />
+        </div>
+        <div class="form-group">
+          <input type="number" id="price" placeholder="Price (₹)" />
+        </div>
+        <div class="form-group">
+          <select id="category">
+            <option value="featured" selected>Featured</option>
+            <option value="wedding">Wedding</option>
+            <option value="corporate">Corporate</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div id="dropArea">
+          Drag &amp; Drop Image Here<br><br>
+          <input type="file" id="image" accept="image/*" />
+        </div>
+        <button onclick="addProduct()" class="btn-submit">Upload Product</button>
+      </div>
+
+      <!-- Update Content Panel -->
+      <div class="admin-panel" style="margin-bottom: 2rem;">
+        <h2>Update Content</h2>
+        
+        <h3 class="admin-subheading">Homepage Hero</h3>
+        <div class="form-group">
+          <label class="admin-label">Hero Subtitle</label>
+          <textarea id="edit-hero-subtitle" rows="2" class="admin-textarea" placeholder="Loading..."></textarea>
+        </div>
+        
+        <h3 class="admin-subheading" style="margin-top: 1.5rem;">Section Descriptions</h3>
+        <div class="form-group">
+          <label class="admin-label">Wedding Section Description</label>
+          <textarea id="edit-wedding-desc" rows="3" class="admin-textarea" placeholder="Loading..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="admin-label">Corporate Section Description</label>
+          <textarea id="edit-corporate-desc" rows="3" class="admin-textarea" placeholder="Loading..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="admin-label">About Section Description</label>
+          <textarea id="edit-about-desc" rows="3" class="admin-textarea" placeholder="Loading..."></textarea>
+        </div>
+        <button onclick="updateContent()" class="btn-submit">Save Content</button>
+        <p id="content-msg" style="color:#25D366;font-size:0.85rem;margin-top:1rem;text-align:center;min-height:1rem;"></p>
+      </div>
+    </div>
+
+    <!-- Main View Column -->
+    <div class="main-view">
+      
+      <!-- Enquiries Panel -->
+      <div class="view-panel" style="margin-bottom: 4rem;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem;">
+          <h2 style="margin:0;">Recent Enquiries</h2>
+          <span id="enquiry-count" style="color:var(--c-gold); font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;">0 pending</span>
+        </div>
+        <div id="enquiries-list" class="enquiries-grid">
+          <!-- Enquiries load here via main.js -->
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="view-panel">
+        <h2>Current Inventory</h2>
+        <div id="products" class="products-grid">
+          <!-- Products load here via main.js -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Edit Product Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeEditModal()">&times;</span>
+      <h2>Edit Product</h2>
+      <input type="hidden" id="edit-id" />
+      <input type="hidden" id="edit-old-image" />
+      <div class="form-group">
+        <label style="color:var(--c-gold);font-size:0.85rem;">Product Name</label>
+        <input type="text" id="edit-name" />
+      </div>
+      <div class="form-group">
+        <label style="color:var(--c-gold);font-size:0.85rem;">Price (₹)</label>
+        <input type="number" id="edit-price" />
+      </div>
+      <div class="form-group">
+        <label style="color:var(--c-gold);font-size:0.85rem;">Category</label>
+        <select id="edit-category">
+          <option value="featured">Featured</option>
+          <option value="wedding">Wedding</option>
+          <option value="corporate">Corporate</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label style="color:var(--c-gold);font-size:0.85rem;">New Image (Leave blank to keep old)</label>
+        <input type="file" id="edit-image" accept="image/*" style="width:100%;color:var(--c-white);" />
+      </div>
+      <div class="modal-actions">
+        <button onclick="saveEditProduct()" class="btn-submit" id="save-edit-btn">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content" style="text-align: center; max-width: 400px;">
+      <h2>Confirm Deletion</h2>
+      <p style="margin-bottom: 2rem;">Are you sure you want to delete this product? This action cannot be undone.</p>
+      <input type="hidden" id="delete-id" />
+      <input type="hidden" id="delete-image-url" />
+      <div class="modal-actions" style="justify-content: center;">
+        <button onclick="closeDeleteModal()" class="btn-ghost">Cancel</button>
+        <button onclick="confirmDeleteProduct()" class="btn-danger" id="confirm-delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="main.js"></script>
+  <script>
+    // Initialize Dashboard
+    window.addEventListener('DOMContentLoaded', async () => {
+      // main.js will check the user session
+      // Wait a moment for main.js to initialize the client
+      setTimeout(async () => {
+        const { data } = await client.auth.getUser();
+        if (!data || !data.user) {
+          window.location.href = "admin.html"; // Redirect if not logged in
+        } else {
+          document.getElementById('loading').style.display = 'none';
+        }
+      }, 500);
+    });
+  </script>
+</body>
+</html>

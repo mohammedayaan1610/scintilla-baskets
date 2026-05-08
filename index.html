@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Scintilla Baskets — Exquisitely curated gift baskets for weddings, corporate events, and every special occasion. Handcrafted with elegance.">
+  <title>Scintilla Baskets | Premium Gifting Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==================== BACKGROUND VIDEOS (PRESERVED) ==================== -->
+  <video id="video1" class="bg-video" autoplay muted playsinline></video>
+  <video id="video2" class="bg-video" muted playsinline></video>
+
+  <!-- ==================== VIDEO OVERLAY ==================== -->
+  <div class="video-overlay"></div>
+
+  <!-- ==================== GLASSMORPHISM NAVBAR ==================== -->
+  <header id="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">✦</span>
+      <h1>Scintilla Baskets</h1>
+    </div>
+    <nav>
+      <a href="#featured" id="nav-featured">Featured</a>
+      <a href="#wedding" id="nav-wedding">Wedding</a>
+      <a href="#corporate" id="nav-corporate">Corporate</a>
+      <a href="#craftsmanship" id="nav-craftsmanship">Craftsmanship</a>
+      <a href="admin.html" id="nav-signin">Sign In</a>
+      <a href="#contact" id="nav-contact" class="nav-cta">Order Now</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#featured" onclick="closeMobileNav()">Featured</a>
+    <a href="#wedding" onclick="closeMobileNav()">Wedding</a>
+    <a href="#corporate" onclick="closeMobileNav()">Corporate</a>
+    <a href="#craftsmanship" onclick="closeMobileNav()">Craftsmanship</a>
+    <a href="admin.html">Sign In</a>
+    <a href="#contact" onclick="closeMobileNav()">Order Now</a>
+  </div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-tagline">EST. 2025 · HANDCRAFTED LUXURY</p>
+      <h2 class="hero-title">Curated Hampers<br><em>for Every Occasion</em></h2>
+      <p class="hero-subtitle" id="desc-hero-subtitle">Elegant. Thoughtful. Memorable.</p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn-primary" id="hero-explore-btn">Explore Collections</a>
+        <a href="#contact" class="btn-ghost" id="hero-order-btn">Bespoke Orders</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED HAMPERS ==================== -->
+  <section id="featured" class="section-dark">
+    <div class="section-header">
+      <p class="section-label">Our Collections</p>
+      <h2 class="section-title">Featured Hampers</h2>
+      <p class="section-subtitle">Each hamper is thoughtfully assembled with premium products, wrapped in our signature
+        luxury packaging.</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="carousel-btn prev-btn" id="carousel-prev" aria-label="Previous Product">❮</button>
+      <div class="carousel-container" id="carousel-container">
+        <!-- Dynamic products from Supabase load here -->
+        <div id="products" class="carousel-track"></div>
+      </div>
+      <button class="carousel-btn next-btn" id="carousel-next" aria-label="Next Product">❯</button>
+    </div>
+
+    <div class="section-cta">
+      <a href="#contact" class="btn-primary" id="featured-cta-btn">Request Custom Hamper</a>
+    </div>
+  </section>
+
+  <!-- ==================== WEDDING HAMPERS SECTION ==================== -->
+  <section id="wedding" class="section-cream">
+    <div class="wedding-layout">
+      <div class="wedding-visual">
+        <div class="wedding-img-frame">
+          <img src="./images/IMG_4944.JPEG" alt="Luxury Wedding Hamper" class="wedding-img" id="wedding-img-1"
+            onerror="this.src='https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&q=80'">
+          <div class="wedding-img-accent"></div>
+        </div>
+      </div>
+      <div class="wedding-content">
+        <p class="section-label">For Your Special Day</p>
+        <h2 class="section-title">Wedding &amp;<br>Bridal Hampers</h2>
+        <p class="wedding-desc" id="desc-wedding">From intimate proposals to grand wedding celebrations, our bridal
+          hampers are crafted to create lasting memories. Each piece is chosen with care — premium fragrances, artisanal
+          treats, and keepsakes wrapped in pure elegance.</p>
+        <ul class="wedding-features">
+          <li><span class="feat-icon">✦</span> Bespoke monogramming &amp; personalisation</li>
+          <li><span class="feat-icon">✦</span> Hand-tied satin ribbons &amp; wax seals</li>
+          <li><span class="feat-icon">✦</span> Curated premium products per theme</li>
+          <li><span class="feat-icon">✦</span> Bulk wedding favours available</li>
+        </ul>
+        <div class="wedding-prices">
+          <div class="price-tier">
+            <span class="price-label">Bridal Bliss</span>
+            <span class="price-val">₹3,999</span>
+          </div>
+          <div class="price-tier">
+            <span class="price-label">Grand Affair</span>
+            <span class="price-val">₹6,999</span>
+          </div>
+          <div class="price-tier">
+            <span class="price-label">Royal Suite</span>
+            <span class="price-val">₹12,999</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary" id="wedding-enquire-btn">Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CORPORATE GIFTING SECTION ==================== -->
+  <section id="corporate" class="section-dark corporate-section">
+    <div class="section-header">
+      <p class="section-label">Business Gifting</p>
+      <h2 class="section-title">Corporate Gifting</h2>
+      <p class="section-subtitle" id="desc-corporate">Make every professional relationship extraordinary. Our corporate
+        hampers are curated to impress clients, celebrate milestones, and reward your team.</p>
+    </div>
+    <div class="corporate-grid">
+      <div class="corp-card" id="corp-card-1">
+        <div class="corp-icon">🤝</div>
+        <h3>Client Gifting</h3>
+        <p>Strengthen relationships with premium hampers personalised for key clients and stakeholders.</p>
+        <span class="corp-price">From ₹2,499</span>
+      </div>
+      <div class="corp-card featured-corp" id="corp-card-2">
+        <div class="corp-badge">Most Popular</div>
+        <div class="corp-icon">🏆</div>
+        <h3>Employee Rewards</h3>
+        <p>Celebrate achievements and milestones with thoughtfully curated appreciation hampers.</p>
+        <span class="corp-price">From ₹1,499</span>
+      </div>
+      <div class="corp-card" id="corp-card-3">
+        <div class="corp-icon">🎄</div>
+        <h3>Festive &amp; Seasonal</h3>
+        <p>Diwali, Christmas, New Year — make every festive occasion unforgettable for your team.</p>
+        <span class="corp-price">From ₹1,999</span>
+      </div>
+    </div>
+    <div class="corporate-features">
+      <div class="corp-feat-item">
+        <span class="corp-feat-num">50+</span>
+        <span class="corp-feat-label">Minimum Order</span>
+      </div>
+      <div class="corp-feat-divider"></div>
+      <div class="corp-feat-item">
+        <span class="corp-feat-num">Custom</span>
+        <span class="corp-feat-label">Branding Options</span>
+      </div>
+      <div class="corp-feat-divider"></div>
+      <div class="corp-feat-item">
+        <span class="corp-feat-num">48hr</span>
+        <span class="corp-feat-label">Quick Turnaround</span>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a href="#contact" class="btn-gold" id="corporate-cta-btn">Request Corporate Quote</a>
+    </div>
+  </section>
+
+  <!-- ==================== OUR CRAFTSMANSHIP ==================== -->
+  <section id="craftsmanship" class="section-cream craftsmanship-section">
+    <div class="section-header">
+      <p class="section-label">The Art of Gifting</p>
+      <h2 class="section-title">Our Craftsmanship</h2>
+      <p class="section-subtitle" id="desc-about-desc" style="max-width:800px; margin:0 auto 3rem;"></p>
+    </div>
+    <div class="testimonials-track" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="testimonial-card" style="text-align: center;">
+        <div class="corp-icon" style="color: var(--c-gold); font-size: 3rem; margin-bottom: 1rem;">🌿</div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem; color: var(--c-black);">
+          Sustainably Sourced</h3>
+        <p class="testi-text" style="font-style: normal; margin-bottom: 0;">We partner with ethical artisans and
+          sustainable farms to ensure every item in our baskets supports responsible practices while delivering
+          unparalleled quality.</p>
+      </div>
+      <div class="testimonial-card" style="text-align: center;">
+        <div class="corp-icon" style="color: var(--c-gold); font-size: 3rem; margin-bottom: 1rem;">🎀</div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem; color: var(--c-black);">
+          Exquisite Presentation</h3>
+        <p class="testi-text" style="font-style: normal; margin-bottom: 0;">Each basket is a work of art, hand-woven
+          with care and finished with our signature velvet ribbons, wax seals, and custom botanical accents.</p>
+      </div>
+      <div class="testimonial-card" style="text-align: center;">
+        <div class="corp-icon" style="color: var(--c-gold); font-size: 3rem; margin-bottom: 1rem;">✨</div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem; color: var(--c-black);">
+          Curated Perfection</h3>
+        <p class="testi-text" style="font-style: normal; margin-bottom: 0;">From rare teas to artisanal chocolates, we
+          hand-select only the finest premium goods to create harmonious flavor profiles and memorable experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT / ORDER ==================== -->
+  <section id="contact" class="section-dark contact-section">
+    <div class="contact-layout">
+      <div class="contact-content">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-title">Order Now</h2>
+        <p class="contact-desc">Ready to create something extraordinary? Whether it's a single bespoke hamper or a bulk
+          corporate order, we'd love to help craft the perfect gifting experience.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <div>
+              <span class="contact-item-label">WhatsApp</span>
+              <a href="https://wa.me/919999999999" class="contact-item-val" id="whatsapp-link">Chat with us</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <span class="contact-item-label">Location</span>
+              <span class="contact-item-val">Chennai, India</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⏰</span>
+            <div>
+              <span class="contact-item-label">Response Time</span>
+              <span class="contact-item-val">Within 30 min</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a href="https://wa.me/919999999999" class="btn-whatsapp" id="whatsapp-cta-btn" aria-label="Chat on WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+            Chat on WhatsApp
+          </a>
+          <a href="https://instagram.com/scintilla_baskets" target="_blank" rel="noopener noreferrer"
+            class="btn-instagram" id="instagram-cta-btn" aria-label="Chat on Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+            Chat on Instagram
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-panel">
+        <h3 class="form-title">Quick Enquiry</h3>
+        <form class="contact-form" id="enquiry-form" onsubmit="handleEnquiry(event)">
+          <div class="form-group">
+            <input type="text" id="enquiry-name" placeholder="Your Name" required>
+            <label for="enquiry-name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="enquiry-email" placeholder="Email Address" required>
+            <label for="enquiry-email">Email Address</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="enquiry-phone" placeholder="Phone Number" required>
+            <label for="enquiry-phone">Phone Number</label>
+          </div>
+          <div class="form-group">
+            <select id="enquiry-type">
+              <option value="" disabled selected>Occasion Type</option>
+              <option value="wedding">Wedding / Bridal</option>
+              <option value="corporate">Corporate Gifting</option>
+              <option value="festive">Festive Hampers</option>
+              <option value="personal">Personal Gift</option>
+              <option value="custom">Custom Order</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="enquiry-message" placeholder="Tell us about your requirements..." rows="3"></textarea>
+            <label for="enquiry-message">Your Requirements</label>
+          </div>
+          <button type="submit" class="btn-primary form-submit" id="enquiry-submit-btn">Send Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ELEGANT FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-icon">✦</span>
+        <h2>Scintilla Baskets</h2>
+        <p>Crafting extraordinary gifting experiences with elegance, care, and unparalleled attention to detail.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <a href="#featured">Featured Hampers</a>
+          <a href="#wedding">Wedding &amp; Bridal</a>
+          <a href="#corporate">Corporate Gifting</a>
+          <a href="#contact">Custom Orders</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">Our Story</a>
+          <a href="#">Craftsmanship</a>
+          <a href="#">Sustainability</a>
+          <a href="#">Press</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://wa.me/919880121733" id="footer-whatsapp">WhatsApp</a>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Scintilla Baskets. All rights reserved. Crafted with ♥ in India.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="main.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
